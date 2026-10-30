@@ -1,0 +1,91 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Dashboard</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #071b16, #123c2e);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 420px;
+            padding: 40px;
+            background: white;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+        }
+
+        .icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #123c2e;
+            margin-bottom: 15px;
+        }
+
+        p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        .status {
+            background: #e5f7ef;
+            color: #15966b;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            font-weight: bold;
+        }
+
+        a {
+            display: block;
+            padding: 12px;
+            background: #15966b;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+        }
+
+        a:hover {
+            background: #0d704e;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="icon">🛡️</div>
+
+        <h1>Welcome!</h1>
+
+        <p>You have successfully logged in to your account.</p>
+
+        <div class="status">
+            ✓ Two-Factor Authentication Verified
+        </div>
+
+        <a href="/logout">Logout</a>
+
+    </div>
+</body>
+</html>

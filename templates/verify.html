@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #071b16, #123c2e, #071b16);
+        }
+
+        .container {
+            width: 360px;
+            padding: 35px;
+            background: white;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #123c2e;
+            margin-bottom: 12px;
+        }
+
+        p {
+            color: #777;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            text-align: center;
+            font-size: 22px;
+            letter-spacing: 8px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #15966b;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #15966b;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d704e;
+        }
+
+        .message {
+            color: #d32f2f;
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="icon">🔐</div>
+
+        <h2>OTP Verification</h2>
+
+        <p>Enter the 6-digit OTP displayed in your terminal to verify your identity.</p>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST">
+            <input type="text" name="otp"
+                   placeholder="000000"
+                   maxlength="6"
+                   pattern="[0-9]{6}"
+                   inputmode="numeric"
+                   required>
+
+            <button type="submit">Verify OTP</button>
+        </form>
+
+    </div>
+</body>
+</html>

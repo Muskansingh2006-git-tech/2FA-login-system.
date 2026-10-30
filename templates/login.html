@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #071b16, #123c2e, #071b16);
+        }
+
+        .container {
+            width: 360px;
+            padding: 35px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 35px rgba(0,0,0,0.4);
+        }
+
+        h2 {
+            text-align: center;
+            color: #123c2e;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #15966b;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #15966b;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d704e;
+        }
+
+        .message {
+            color: #2fd366;
+            text-align: center;
+            margin-bottom: 12px;
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #15966b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <h2>Welcome Back!</h2>
+        <p>Login to your secure account</p>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="message">{{ message }}</div>
+            {% endfor %}
+        {% endwith %}
+
+        <form method="POST">
+
+            <label>Username / Email</label>
+            <input type="text" name="username"
+                   placeholder="Enter username" required>
+
+            <label>Password</label>
+            <input type="password" name="password"
+                   placeholder="Enter password" required>
+
+            <button type="submit">Login</button>
+
+        </form>
+
+        <div class="register">
+            Don't have an account?
+            <a href="/register">Register</a>
+        </div>
+
+    </div>
+</body>
+</html>
