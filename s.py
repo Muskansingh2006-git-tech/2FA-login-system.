@@ -74,7 +74,7 @@ def login():
             session["pending_user"] = user["id"]
             return redirect(url_for("verify"))
 
-        flash("Username ya password galat hai.")
+        flash("Username or password are incorrect.")
 
     return render_template("login.html")
 
@@ -98,13 +98,13 @@ def verify():
 
         if time.time() > session.get("otp_expiry", 0):
             session.pop("otp", None)
-            flash("OTP expire ho gaya. Dobara login karo.")
+            flash("OTP is expired. try again.")
             session.pop("pending_user", None)
             return redirect(url_for("login"))
 
-        if session.get("otp_attempts", 0) >= 5:
+        if session.get("otp_attempts", 0) >= 3:
             session.clear()
-            flash("Maximum attempts reached. Dobara login karo.")
+            flash("Maximum attempts reached. plz try again.")
             return redirect(url_for("login"))
 
         if secrets.compare_digest(otp, session.get("otp", "")):
